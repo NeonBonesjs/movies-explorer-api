@@ -50,8 +50,8 @@ const movieSchema = mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
   },
   movieId: {
-    required: true,
-
+    type: Number,
+    require: true,
   },
   nameRU: {
     type: String,
@@ -64,4 +64,4 @@ const movieSchema = mongoose.Schema({
 
 });
 
-module.exports('Movie', movieSchema);
+module.exports = mongoose.model('Movie', movieSchema);
