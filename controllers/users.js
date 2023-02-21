@@ -32,6 +32,9 @@ module.exports.changeUserInfo = (req, res, next) => {
       if (err.name === 'ValidationError') {
         return next(new ValidationError(`${Object.values(err.errors).map((error) => error.message).join(', ')}`));
       }
+      if (err.name === 'MongoServerError' && err.code === 11000) {
+        return next(new CustomError('Пользователь с таким email уже существует', 409));
+      }
       return next(err);
     });
 };
