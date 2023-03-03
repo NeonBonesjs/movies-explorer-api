@@ -50,9 +50,11 @@ module.exports.createUser = (req, res, next) => {
       name,
     }))
     .then((user) => {
-      res.status(201).send(
-        user,
-      );
+      res.status(201).send({
+        name: user.name,
+        email: user.email,
+        _id: user.id,
+      });
     })
     .catch((err) => {
       if (err instanceof mongoose.Error.ValidationError) {
