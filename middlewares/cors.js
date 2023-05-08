@@ -1,6 +1,4 @@
 const CORS_WHITELIST = [
-  'https://movies-neonbonesjs.nomoredomains.monster',
-  'http://movies-neonbonesjs.nomoredomains.monster',
   'http://localhost:3000',
 ];
 
